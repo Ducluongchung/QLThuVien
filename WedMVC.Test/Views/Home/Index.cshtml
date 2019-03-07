@@ -1,0 +1,45 @@
+﻿@model List<WebMVC.Model.NhanVien>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int Stt = 0;
+}
+<br />
+<h3 style="padding-left: 10px">Danh sách nhân viên</h3>
+<div style="margin-left: 10px">
+    @Html.ActionLink("Thêm", "Add", "AdminMenu", new { @class = "btn-submit btn btn-success" })
+</div>
+<br />
+<div class="col-xs-12 table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Họ tên</th>
+                <th>Số Điện Thoại</th>
+                <th>Giới tính</th>
+                <th>Quốc tịch</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                Stt++;
+                <tr>
+                    <td>@Stt</td>
+                    <td>@item.Name</td>
+                    <td>@item.PhoneNumber</td>
+                    <td>@item.Sex</td>
+                    <td>@item.National</td>
+               
+                    <td>
+                        @Html.ActionLink("Sửa", "Edit", new { id = @item.Id }) |
+                        @Html.ActionLink("Xóa", "Delete", new { id = @item.Id })
+                    </td>
+                </tr>
+
+            }
+
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,12 @@
+D:\Duc_CMC\Project\DUC\WebMVC\WebMVC.Model\bin\Debug\WebMVC.Model.dll
+D:\Duc_CMC\Project\DUC\WebMVC\WebMVC.Model\bin\Debug\WebMVC.Model.pdb
+D:\Duc_CMC\Project\DUC\WebMVC\WebMVC.Model\obj\Debug\WebMVC.Model.csproj.CoreCompileInputs.cache
+D:\Duc_CMC\Project\DUC\WebMVC\WebMVC.Model\obj\Debug\WebMVC.Model.dll
+D:\Duc_CMC\Project\DUC\WebMVC\WebMVC.Model\obj\Debug\WebMVC.Model.pdb
+D:\Duc_CMC\Project\DUC\WebMVC\WebMVC.Model\obj\Debug\WebMVC.Model.csprojAssemblyReference.cache
+C:\Users\Duc\Desktop\WebMVC\WebMVC.Model\bin\Debug\WebMVC.Model.dll
+C:\Users\Duc\Desktop\WebMVC\WebMVC.Model\bin\Debug\WebMVC.Model.pdb
+C:\Users\Duc\Desktop\WebMVC\WebMVC.Model\obj\Debug\WebMVC.Model.csprojAssemblyReference.cache
+C:\Users\Duc\Desktop\WebMVC\WebMVC.Model\obj\Debug\WebMVC.Model.csproj.CoreCompileInputs.cache
+C:\Users\Duc\Desktop\WebMVC\WebMVC.Model\obj\Debug\WebMVC.Model.dll
+C:\Users\Duc\Desktop\WebMVC\WebMVC.Model\obj\Debug\WebMVC.Model.pdb

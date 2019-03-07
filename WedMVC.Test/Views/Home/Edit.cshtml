@@ -1,0 +1,43 @@
+﻿@model WebMVC.Model.NhanVien
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h3 style="padding-left: 10px">Sửa</h3>
+<div class="box-body">
+    @using (Html.BeginForm("Edit", "Home", FormMethod.Post))
+    {
+        <div class="form-group">
+            <label for="exampleInputEmail1">Name</label>
+            @Html.EditorFor(x => x.FullName, new { htmlAttributes = new { @class = "form-control", placeholder = "Name", style = "width: 70%" } })
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Account</label>
+            @Html.EditorFor(x => x.Account, new { htmlAttributes = new { @class = "form-control", placeholder = "Account", style = "width: 70%" } })
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Group</label>
+            @Html.EditorFor(x => x.Group, new { htmlAttributes = new { @class = "form-control", placeholder = "Group", style = "width: 70%" } })
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">StartDate</label>
+            @Html.EditorFor(x => x.StartDate, new { htmlAttributes = new { @class = "form-control", placeholder = "StartDate", style = "width: 70%" } })
+         
+        </div>
+        
+        <div class="form-group">
+            <label for="exampleInputPassword1">BirthDay</label>
+            @Html.EditorFor(x => x.BirthDay, new { htmlAttributes = new { @class = "form-control", placeholder = "BirthDay", style = "width: 70%" } })
+        </div>
+        <div class="col-sm-12 col-xs-12">
+            <input type="submit" name="create" class="btn-submit btn btn-primary" value="Save" id="addmenu"
+                   style="background: #ffb400;border: 1px solid #ffb400">
+        </div>
+
+    }
+
+</div>
+
+
