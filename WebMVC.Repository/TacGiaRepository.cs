@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebMVC.Data;
 using WebMVC.Model;
 
 namespace WebMVC.Repository
@@ -13,19 +15,31 @@ namespace WebMVC.Repository
     }
     public class TacGiaRepository : ITacGiaRepository
     {
+        private readonly TestMVCDbContext _context;
+
+        public TacGiaRepository(TestMVCDbContext context)
+        {
+            _context = context;
+        }
         public int Add(Tacgia item)
         {
-            throw new NotImplementedException();
+            _context.Tacgias.Add(item);
+            _context.SaveChanges();
+            return item.Id;
         }
 
-        public bool Delete(int id)
+        public bool Delete(Tacgia entity)
         {
-            throw new NotImplementedException();
+            var model = _context.Tacgias.Find(entity.Id);
+            _context.Tacgias.Remove(model);
+            _context.SaveChanges();
+            return true;
         }
 
         public List<Tacgia> GetAll()
         {
-            throw new NotImplementedException();
+            var list = _context.Tacgias.ToList();
+            return list;
         }
 
         public Tacgia GetById(int id)
@@ -33,9 +47,15 @@ namespace WebMVC.Repository
             throw new NotImplementedException();
         }
 
-        public bool Update(Tacgia item)
+        public Tacgia Search(string SearchString)
         {
             throw new NotImplementedException();
+        }
+
+        public bool Update(Tacgia item)
+        {
+            _context.Entry(item).State = EntityState.Modified;
+            return _context.SaveChanges() > 0;
         }
     }
 }

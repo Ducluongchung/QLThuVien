@@ -55,14 +55,21 @@ namespace WebMVC.Service
         {
             return _repository.Update(item);
         }
+
+        public bool Delete(NhanVien entity)
+        {
+            return _repository.Delete(entity);
+        }
+
         /// <summary>
         /// Service Delete Nhan Vien
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public bool Delete(int id)
-        {
-            return _repository.Delete(id);
-        }
+
+
+
+
+
     }
 }

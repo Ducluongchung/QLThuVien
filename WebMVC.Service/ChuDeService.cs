@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WebMVC.Model;
+using WebMVC.Repository;
 
 namespace WebMVC.Service
 {
@@ -13,29 +14,35 @@ namespace WebMVC.Service
     }
     public class ChuDeService : IChuDeService
     {
+        private readonly IChuDeRepository _repository;
+
+        public ChuDeService(IChuDeRepository repository)
+        {
+            _repository = repository;
+        }
         public int Add(ChuDe item)
         {
-            throw new NotImplementedException();
+            return _repository.Add(item);
         }
 
-        public bool Delete(int id)
+        public bool Delete(ChuDe entity)
         {
-            throw new NotImplementedException();
+           return _repository.Delete(entity);
         }
 
         public List<ChuDe> GetAll()
         {
-            throw new NotImplementedException();
+            return _repository.GetAll();
         }
 
         public ChuDe GetById(int id)
         {
-            throw new NotImplementedException();
+            return _repository.GetById(id);
         }
 
         public bool Update(ChuDe item)
         {
-            throw new NotImplementedException();
+            return _repository.Update(item);
         }
     }
 }

@@ -12,6 +12,7 @@ namespace WebMVC.Service
         T GetById(int id);
         int Add(T item);
         bool Update(T item);
-        bool Delete(int id);
+        bool Delete(T entity);
+
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WebMVC.Model;
+using WebMVC.Repository;
 
 namespace WebMVC.Service
 {
@@ -13,29 +14,34 @@ namespace WebMVC.Service
     }
     public class TacGiaService : ITacGiaService
     {
+        private readonly ITacGiaRepository _repository;
+        public TacGiaService(ITacGiaRepository repository)
+        {
+            _repository = repository;
+        }
         public int Add(Tacgia item)
         {
-            throw new NotImplementedException();
+            return _repository.Add(item);
         }
 
-        public bool Delete(int id)
+        public bool Delete(Tacgia entity)
         {
-            throw new NotImplementedException();
+            return _repository.Delete(entity);
         }
 
         public List<Tacgia> GetAll()
         {
-            throw new NotImplementedException();
+            return _repository.GetAll();
         }
 
         public Tacgia GetById(int id)
         {
-            throw new NotImplementedException();
+            return _repository.GetById(id);
         }
 
         public bool Update(Tacgia item)
         {
-            throw new NotImplementedException();
+            return _repository.Update(item);
         }
     }
 }

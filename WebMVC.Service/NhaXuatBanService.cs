@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WebMVC.Model;
+using WebMVC.Repository;
 
 namespace WebMVC.Service
 {
@@ -13,29 +14,34 @@ namespace WebMVC.Service
     }
     public class NhaXuatBanService : INhaXuatBanService
     {
+        private readonly INhaXuatBanRepository _repository;
+        public NhaXuatBanService(INhaXuatBanRepository repository)
+        {
+            _repository = repository;
+        }
         public int Add(NhaXuatBan item)
         {
-            throw new NotImplementedException();
+            return _repository.Add(item);
         }
 
-        public bool Delete(int id)
+        public bool Delete(NhaXuatBan entity)
         {
-            throw new NotImplementedException();
+            return _repository.Delete(entity);
         }
 
         public List<NhaXuatBan> GetAll()
         {
-            throw new NotImplementedException();
+            return _repository.GetAll();
         }
 
         public NhaXuatBan GetById(int id)
         {
-            throw new NotImplementedException();
+            return _repository.GetById(id);
         }
 
         public bool Update(NhaXuatBan item)
         {
-            throw new NotImplementedException();
+            return _repository.Update(item);
         }
     }
 }

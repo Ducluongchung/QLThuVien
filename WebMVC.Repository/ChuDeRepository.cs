@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebMVC.Data;
 using WebMVC.Model;
 
 namespace WebMVC.Repository
@@ -13,19 +15,31 @@ namespace WebMVC.Repository
     }
     public class ChuDeRepository : IChuDeRepository
     {
+        private readonly TestMVCDbContext _context;
+
+        public ChuDeRepository(TestMVCDbContext context)
+        {
+            _context = context;
+        }
         public int Add(ChuDe item)
         {
-            throw new NotImplementedException();
+            _context.ChuDes.Add(item);
+            _context.SaveChanges();
+            return item.Id;
         }
 
-        public bool Delete(int id)
+        public bool Delete(ChuDe entity)
         {
-            throw new NotImplementedException();
+            var model = _context.ChuDes.Find(entity.Id);
+            _context.ChuDes.Remove(model);
+            _context.SaveChanges();
+            return true;
         }
 
         public List<ChuDe> GetAll()
         {
-            throw new NotImplementedException();
+            var list = _context.ChuDes.ToList();
+            return list;
         }
 
         public ChuDe GetById(int id)
@@ -33,9 +47,15 @@ namespace WebMVC.Repository
             throw new NotImplementedException();
         }
 
-        public bool Update(ChuDe item)
+        public ChuDe Search(string SearchString)
         {
             throw new NotImplementedException();
+        }
+
+        public bool Update(ChuDe item)
+        {
+            _context.Entry(item).State = EntityState.Modified;
+            return _context.SaveChanges() > 0;
         }
     }
 }

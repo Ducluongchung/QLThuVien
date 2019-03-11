@@ -11,7 +11,7 @@ namespace WebMVC.Repository
 {
     public interface INhanVienRepository : IRepository<NhanVien>
     {
-        int SearchSex();
+       
     }
     public class NhanVienRepository : INhanVienRepository
     {
@@ -39,23 +39,37 @@ namespace WebMVC.Repository
         /// <returns></returns>
         public bool Delete(int id)
         {
-            if (_context.SaveChanges() > 0)
+            try
             {
-                var nhanVien = _context.NhanViens.Find(id);
-                _context.NhanViens.Remove(nhanVien);
+                var user = _context.NhanViens.Find(id);
+                _context.NhanViens.Remove(user);
+                _context.SaveChanges();
                 return true;
             }
-            else
+            catch (Exception)
+            {
                 return false;
+            }
         }
+
+        public bool Delete(NhanVien entity)
+        {
+            var model = _context.NhanViens.Find(entity.Id);
+            _context.NhanViens.Remove(model);
+            _context.SaveChanges();
+            return true;
+        }
+
+
+
         /// <summary>
         /// Get danh sach nhan vien
         /// </summary>
         /// <returns></returns>
         public List<NhanVien> GetAll()
         {
-            var listBanner = _context.NhanViens.ToList();
-            return listBanner;
+            var list = _context.NhanViens.ToList();
+            return list;
         }
         /// <summary>
         /// Tim kiem khoa chinh
@@ -76,10 +90,12 @@ namespace WebMVC.Repository
             throw new NotImplementedException();
         }
 
-        public int SearchSex()
+        public NhanVien Search(string SearchString)
         {
             throw new NotImplementedException();
         }
+
+
 
         /// <summary>
         /// Update Nhan Vien
@@ -91,5 +107,7 @@ namespace WebMVC.Repository
             _context.Entry(item).State = EntityState.Modified;
             return _context.SaveChanges() > 0;
         }
+
+       
     }
 }

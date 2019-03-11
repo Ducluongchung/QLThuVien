@@ -10,3 +10,9 @@ C:\Users\Duc\Desktop\WebMVC\WebMVC.Model\obj\Debug\WebMVC.Model.csprojAssemblyRe
 C:\Users\Duc\Desktop\WebMVC\WebMVC.Model\obj\Debug\WebMVC.Model.csproj.CoreCompileInputs.cache
 C:\Users\Duc\Desktop\WebMVC\WebMVC.Model\obj\Debug\WebMVC.Model.dll
 C:\Users\Duc\Desktop\WebMVC\WebMVC.Model\obj\Debug\WebMVC.Model.pdb
+C:\Users\Duc\Desktop\QLThuVien\WebMVC.Model\bin\Debug\WebMVC.Model.dll
+C:\Users\Duc\Desktop\QLThuVien\WebMVC.Model\bin\Debug\WebMVC.Model.pdb
+C:\Users\Duc\Desktop\QLThuVien\WebMVC.Model\obj\Debug\WebMVC.Model.csprojAssemblyReference.cache
+C:\Users\Duc\Desktop\QLThuVien\WebMVC.Model\obj\Debug\WebMVC.Model.csproj.CoreCompileInputs.cache
+C:\Users\Duc\Desktop\QLThuVien\WebMVC.Model\obj\Debug\WebMVC.Model.dll
+C:\Users\Duc\Desktop\QLThuVien\WebMVC.Model\obj\Debug\WebMVC.Model.pdb

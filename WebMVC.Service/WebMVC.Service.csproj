@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="ChuDeService.cs" />
     <Compile Include="DocGiaService.cs" />
+    <Compile Include="HopDongService.cs" />
     <Compile Include="IService.cs" />
     <Compile Include="MuonSachService.cs" />
     <Compile Include="NhanVienService.cs" />

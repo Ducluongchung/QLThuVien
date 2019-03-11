@@ -9,7 +9,7 @@ using WebMVC.Model;
 
 namespace WebMVC.Data
 {
-    public class TestMVCDbContext:DbContext
+    public class TestMVCDbContext : IdentityDbContext<IdentityUser>
     {
         public TestMVCDbContext():base("LibraryDbContext")
         {

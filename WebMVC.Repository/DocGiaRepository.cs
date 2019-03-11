@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebMVC.Data;
 using WebMVC.Model;
 
 namespace WebMVC.Repository
@@ -13,19 +15,31 @@ namespace WebMVC.Repository
     }
     public class DocGiaRepository : IDocGiaRepository
     {
+        private readonly TestMVCDbContext _context;
+
+        public DocGiaRepository(TestMVCDbContext context)
+        {
+            _context = context;
+        }
         public int Add(DocGia item)
         {
-            throw new NotImplementedException();
+            _context.DocGias.Add(item);
+            _context.SaveChanges();
+            return item.Id;
         }
 
-        public bool Delete(int id)
+        public bool Delete(DocGia entity)
         {
-            throw new NotImplementedException();
+            var model = _context.DocGias.Find(entity.Id);
+            _context.DocGias.Remove(model);
+            _context.SaveChanges();
+            return true;
         }
 
         public List<DocGia> GetAll()
         {
-            throw new NotImplementedException();
+            var list = _context.DocGias.ToList();
+            return list;
         }
 
         public DocGia GetById(int id)
@@ -33,9 +47,15 @@ namespace WebMVC.Repository
             throw new NotImplementedException();
         }
 
-        public bool Update(DocGia item)
+        public DocGia Search(string SearchString)
         {
             throw new NotImplementedException();
+        }
+
+        public bool Update(DocGia item)
+        {
+            _context.Entry(item).State = EntityState.Modified;
+            return _context.SaveChanges() > 0;
         }
     }
 }

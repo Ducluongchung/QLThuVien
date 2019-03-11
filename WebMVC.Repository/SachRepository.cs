@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebMVC.Data;
 using WebMVC.Model;
 
 namespace WebMVC.Repository
@@ -13,19 +15,30 @@ namespace WebMVC.Repository
     }
     public class SachRepository : ISachRepository
     {
+        private readonly TestMVCDbContext _context;
+        public SachRepository(TestMVCDbContext context)
+        {
+            _context = context;
+        }
         public int Add(Sach item)
         {
-            throw new NotImplementedException();
+            _context.Saches.Add(item);
+            _context.SaveChanges();
+            return item.Id;
         }
 
-        public bool Delete(int id)
+        public bool Delete(Sach entity)
         {
-            throw new NotImplementedException();
+            var model = _context.Saches.Find(entity.Id);
+            _context.Saches.Remove(model);
+            _context.SaveChanges();
+            return true;
         }
 
         public List<Sach> GetAll()
         {
-            throw new NotImplementedException();
+            var list = _context.Saches.ToList();
+            return list;
         }
 
         public Sach GetById(int id)
@@ -33,9 +46,15 @@ namespace WebMVC.Repository
             throw new NotImplementedException();
         }
 
-        public bool Update(Sach item)
+        public Sach Search(string SearchString)
         {
             throw new NotImplementedException();
+        }
+
+        public bool Update(Sach item)
+        {
+            _context.Entry(item).State = EntityState.Modified;
+            return _context.SaveChanges() > 0;
         }
     }
 }

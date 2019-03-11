@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebMVC.Data;
 using WebMVC.Model;
 
 namespace WebMVC.Repository
@@ -13,19 +15,31 @@ namespace WebMVC.Repository
     }
     public class MuonSachRepository : IMuonSachRepository
     {
+        private readonly TestMVCDbContext _context;
+
+        public MuonSachRepository(TestMVCDbContext context)
+        {
+            _context=context;
+        }
         public int Add(MuonSach item)
         {
-            throw new NotImplementedException();
+            _context.MuonSaches.Add(item);
+            _context.SaveChanges();
+            return item.Id;
         }
 
-        public bool Delete(int id)
+        public bool Delete(MuonSach entity)
         {
-            throw new NotImplementedException();
+            var model = _context.MuonSaches.Find(entity.Id);
+            _context.MuonSaches.Remove(model);
+            _context.SaveChanges();
+            return true;
         }
 
         public List<MuonSach> GetAll()
         {
-            throw new NotImplementedException();
+            var list = _context.MuonSaches.ToList();
+            return list;
         }
 
         public MuonSach GetById(int id)
@@ -33,9 +47,15 @@ namespace WebMVC.Repository
             throw new NotImplementedException();
         }
 
-        public bool Update(MuonSach item)
+        public MuonSach Search(string SearchString)
         {
             throw new NotImplementedException();
+        }
+
+        public bool Update(MuonSach item)
+        {
+            _context.Entry(item).State = EntityState.Modified;
+            return _context.SaveChanges() > 0;
         }
     }
 }

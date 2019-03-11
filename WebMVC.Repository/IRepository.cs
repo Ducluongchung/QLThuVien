@@ -12,6 +12,8 @@ namespace WebMVC.Repository
         int Add(T item);
         T GetById(int id);
         bool Update(T item);
-        bool Delete(int id);
+        bool Delete(T entity);
+
+        T Search(string SearchString);
     }
 }

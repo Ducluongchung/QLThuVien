@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WebMVC.Model;
+using WebMVC.Repository;
 
 namespace WebMVC.Service
 {
@@ -13,29 +14,34 @@ namespace WebMVC.Service
     }
     public class SachService : ISachService
     {
+        private readonly ISachRepository _repository;
+        public SachService(ISachRepository repository)
+        {
+            _repository = repository;
+        }
         public int Add(Sach item)
         {
-            throw new NotImplementedException();
+            return _repository.Add(item);
         }
 
-        public bool Delete(int id)
+        public bool Delete(Sach entity)
         {
-            throw new NotImplementedException();
+            return _repository.Delete(entity);
         }
 
         public List<Sach> GetAll()
         {
-            throw new NotImplementedException();
+            return _repository.GetAll();
         }
 
         public Sach GetById(int id)
         {
-            throw new NotImplementedException();
+            return _repository.GetById(id);
         }
 
         public bool Update(Sach item)
         {
-            throw new NotImplementedException();
+            return _repository.Update(item);
         }
     }
 }

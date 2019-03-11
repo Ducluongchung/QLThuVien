@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebMVC.Data;
 using WebMVC.Model;
 
 namespace WebMVC.Repository
@@ -13,19 +15,31 @@ namespace WebMVC.Repository
     }
     public class NhaXuatBanRepository : INhaXuatBanRepository
     {
+        private readonly TestMVCDbContext _context;
+
+        public NhaXuatBanRepository(TestMVCDbContext context)
+        {
+            _context = context;
+        }
         public int Add(NhaXuatBan item)
         {
-            throw new NotImplementedException();
+            _context.NhaXuatBans.Add(item);
+            _context.SaveChanges();
+            return item.Id;
         }
 
-        public bool Delete(int id)
+        public bool Delete(NhaXuatBan entity)
         {
-            throw new NotImplementedException();
+            var model = _context.NhaXuatBans.Find(entity.Id);
+            _context.NhaXuatBans.Remove(model);
+            _context.SaveChanges();
+            return true;
         }
 
         public List<NhaXuatBan> GetAll()
         {
-            throw new NotImplementedException();
+            var list = _context.NhaXuatBans.ToList();
+            return list;
         }
 
         public NhaXuatBan GetById(int id)
@@ -33,9 +47,15 @@ namespace WebMVC.Repository
             throw new NotImplementedException();
         }
 
-        public bool Update(NhaXuatBan item)
+        public NhaXuatBan Search(string SearchString)
         {
             throw new NotImplementedException();
+        }
+
+        public bool Update(NhaXuatBan item)
+        {
+            _context.Entry(item).State = EntityState.Modified;
+            return _context.SaveChanges() > 0;
         }
     }
 }

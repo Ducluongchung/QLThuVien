@@ -1,8 +1,15 @@
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System;
-
+using System.Data.Entity;
 using Unity;
+using Unity.Injection;
+using Unity.Lifetime;
+using WebMVC.Data;
 using WebMVC.Repository;
 using WebMVC.Service;
+using WedMVC.Test.Controllers;
+using WedMVC.Test.Models;
 
 namespace WedMVC.Test
 {
@@ -64,6 +71,17 @@ namespace WedMVC.Test
             container.RegisterType<ITacGiaRepository, TacGiaRepository>();
             container.RegisterType<ITacGiaService, TacGiaService>();
 
+            container.RegisterType<ITacGiaRepository, TacGiaRepository>();
+            container.RegisterType<ITacGiaService, TacGiaService>();
+
+            container.RegisterType<IHopDongRepository, HopDongRepository>();
+            container.RegisterType<IHopDongService, HopDongService>();
+
+            container.RegisterType<IUserStore<ApplicationUser>, UserStore<ApplicationUser>>();
+            container.RegisterType<UserManager<ApplicationUser>>();
+            container.RegisterType<DbContext, TestMVCDbContext>();
+            container.RegisterType<ApplicationUserManager>();
+            container.RegisterType<AccountController>(new InjectionConstructor());
 
         }
     }
