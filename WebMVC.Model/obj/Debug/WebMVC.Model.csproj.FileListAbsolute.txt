@@ -16,3 +16,9 @@ C:\Users\Duc\Desktop\QLThuVien\WebMVC.Model\obj\Debug\WebMVC.Model.csprojAssembl
 C:\Users\Duc\Desktop\QLThuVien\WebMVC.Model\obj\Debug\WebMVC.Model.csproj.CoreCompileInputs.cache
 C:\Users\Duc\Desktop\QLThuVien\WebMVC.Model\obj\Debug\WebMVC.Model.dll
 C:\Users\Duc\Desktop\QLThuVien\WebMVC.Model\obj\Debug\WebMVC.Model.pdb
+C:\Users\a\Source\Repos\QLThuVien2\WebMVC.Model\bin\Debug\WebMVC.Model.dll
+C:\Users\a\Source\Repos\QLThuVien2\WebMVC.Model\bin\Debug\WebMVC.Model.pdb
+C:\Users\a\Source\Repos\QLThuVien2\WebMVC.Model\obj\Debug\WebMVC.Model.csprojAssemblyReference.cache
+C:\Users\a\Source\Repos\QLThuVien2\WebMVC.Model\obj\Debug\WebMVC.Model.csproj.CoreCompileInputs.cache
+C:\Users\a\Source\Repos\QLThuVien2\WebMVC.Model\obj\Debug\WebMVC.Model.dll
+C:\Users\a\Source\Repos\QLThuVien2\WebMVC.Model\obj\Debug\WebMVC.Model.pdb

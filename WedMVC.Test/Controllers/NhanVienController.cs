@@ -43,7 +43,7 @@ namespace WedMVC.Test.Controllers
             if (ModelState.IsValid)
             {
                 if (_nhanVienService.Add(nhanVien) > 0)
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "NhanVien");
             }
             return View();
         }
@@ -74,7 +74,7 @@ namespace WedMVC.Test.Controllers
             {
                 if (_nhanVienService.Update(nhanVien) == true)
                 {
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "NhanVien");
                 }
             }
 
