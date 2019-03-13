@@ -10,7 +10,7 @@ namespace WebMVC.Service
 {
     public interface IChuDeService : IService<ChuDe>
     {
-
+        List<ChuDe> Search(string SearchString);
     }
     public class ChuDeService : IChuDeService
     {
@@ -38,6 +38,11 @@ namespace WebMVC.Service
         public ChuDe GetById(int id)
         {
             return _repository.GetById(id);
+        }
+
+        public List<ChuDe> Search(string SearchString)
+        {
+            return _repository.Search(SearchString);
         }
 
         public bool Update(ChuDe item)

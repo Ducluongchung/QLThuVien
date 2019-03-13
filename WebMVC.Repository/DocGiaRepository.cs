@@ -44,12 +44,17 @@ namespace WebMVC.Repository
 
         public DocGia GetById(int id)
         {
-            throw new NotImplementedException();
+            return _context.DocGias.Find(id);
         }
 
         public List<DocGia> Search(string SearchString)
         {
-            throw new NotImplementedException();
+            if (SearchString == null)
+            {
+                return GetAll();
+            }
+            else
+                return _context.DocGias.Where(x => x.Name.Contains(SearchString)).ToList();
         }
 
         public bool Update(DocGia item)

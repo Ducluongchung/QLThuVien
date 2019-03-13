@@ -1,0 +1,74 @@
+﻿
+@model WebMVC.Model.MuonSach
+@{
+    /**/
+
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="content-header">
+    <h1>
+        Thêm mới phiếu mượn
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Trang chủ</a></li>
+        <li><a href="#">Phiếu mượn</a></li>
+        <li class="active">Thêm mới</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <h3 class="box-title">Thêm mới phiếu mượn</h3>
+        </div><!-- /.box-header -->
+        <!-- form start -->
+        <form class="form-horizontal" novalidate role="form" action="@Url.Action("Add","MuonSach")" method="post">
+            <div class="box-body">
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Người viết</label>
+                    <div class="col-sm-3">
+                        @Html.DropDownListFor(model => model.NhanVienId, null, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.NhanVienId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Người viết</label>
+                    <div class="col-sm-3">
+                        @Html.DropDownListFor(model => model.DocGiaId, null, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.DocGiaId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Người viết</label>
+                    <div class="col-sm-3">
+                        @Html.DropDownListFor(model => model.SachId, null, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.SachId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Ngày mượn</label>
+                    <div class="col-sm-3">
+                        <input type="date" class="form-control" name="NgayMuon">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Ngày trả</label>
+                    <div class="col-sm-3">
+                        <input type="date" class="form-control" name="NgayTra">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Status</label>
+                    <div class="col-sm-3">
+                        <input type="checkbox"name="Status">
+                    </div>
+                </div>
+            </div><!-- /.box-body -->
+            <div class="box-footer">
+                <button class="btn btn-default">Hủy</button>
+                <button type="submit" class="btn btn-success pull-right">Lưu</button>
+            </div><!-- /.box-footer -->
+        </form>
+    </div><!-- /.box -->
+</section>
+

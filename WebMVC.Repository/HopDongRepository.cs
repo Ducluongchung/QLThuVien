@@ -43,7 +43,7 @@ namespace WebMVC.Repository
 
         public HopDong GetById(int id)
         {
-            throw new NotImplementedException();
+            return _context.HopDongs.Find(id);
         }
 
         public List<HopDong> Search(string SearchString)

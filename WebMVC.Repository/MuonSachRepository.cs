@@ -44,12 +44,17 @@ namespace WebMVC.Repository
 
         public MuonSach GetById(int id)
         {
-            throw new NotImplementedException();
+            return _context.MuonSaches.Find(id);
         }
 
         public List<MuonSach> Search(string SearchString)
         {
-            throw new NotImplementedException();
+            if (SearchString == null)
+            {
+                return GetAll();
+            }
+            else
+                return _context.MuonSaches.Where(x => x.DocGia.Name.Contains(SearchString)|| x.NhanVien.Name.Contains(SearchString)).ToList();
         }
 
         public bool Update(MuonSach item)

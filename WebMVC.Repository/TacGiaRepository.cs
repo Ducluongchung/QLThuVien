@@ -44,7 +44,7 @@ namespace WebMVC.Repository
 
         public Tacgia GetById(int id)
         {
-            throw new NotImplementedException();
+            return _context.Tacgias.Find(id);
         }
 
         public List<Tacgia> Search(string SearchString)

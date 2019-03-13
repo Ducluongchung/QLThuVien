@@ -44,12 +44,17 @@ namespace WebMVC.Repository
 
         public ChuDe GetById(int id)
         {
-            throw new NotImplementedException();
+            return _context.ChuDes.Find(id);
         }
 
         public List<ChuDe> Search(string SearchString)
         {
-            throw new NotImplementedException();
+            if (SearchString == null)
+            {
+                return GetAll();
+            }
+            else
+                return _context.ChuDes.Where(x => x.Name.Contains(SearchString)).ToList();
         }
 
         public bool Update(ChuDe item)

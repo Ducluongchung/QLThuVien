@@ -1,0 +1,98 @@
+﻿@model List<WebMVC.Model.MuonSach>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int stt = 0;
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Danh sách phiếu mượn
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Phiếu mượn</a></li>
+        <li class="active">Danh sách phiếu mượn</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Hiển thị danh sách phiếu mượn</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-6" style="margin-bottom:15px">
+                            @using (Html.BeginForm("Index", "PhieuMuon", FormMethod.Get))
+                            {
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Từ khóa" value="@ViewBag.SearchString" name="SearchString">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="submit">Tìm kiếm</button>
+                                    </span>
+                                </div><!-- /input-group -->
+                            }
+                        </div>
+                        <div class="col-md-6">
+                            <a href="/PhieuMuon/Add"><button class="btn btn-success">Thêm mới</button></a>
+                        </div>
+                    </div>
+                    <table id="example2" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th width="7%">STT</th>
+                                <th>Người viết </th>
+                                <th>Người mượn</th>
+                                <th>Ngày mượn </th>
+                                <th>Ngày trả</th>
+                                <th>Trạng thái</th>
+                                <th width="12%">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                stt++;
+                                <tr>
+                                    <td>@stt</td>
+                                    <td>
+                                        @item.NhanVien.Name
+                                    </td>
+                                    <td>@item.DocGia.Name</td>
+                                    <td>@item.NgayMuon.ToString("dd/MM/yyyy")</td>
+                                    <td>@item.NgayTra.ToString("dd/MM/yyyy")</td>
+                                    <td>
+                                        @{ if (item.NgayTra < DateTime.Now)
+                                            {
+                                                <span>Hết hạn</span>
+                                            }
+                                            else
+                                            {<span>Chưa hết hạn</span>}
+                                        }
+                                    </td>
+                                    <td>
+                                        <a href='@Url.Action("Edit","PhieuMuon", new {id = @item.Id })' onclick=""><button class="btn  btn-sm btn-primary"><i class="fa fa-pencil"></i></button></a>
+                                        <a href='@Url.Action("Delete","PhieuMuon", new {id = @item.Id })'><button class="btn  btn-sm btn-danger"><i class="fa fa-trash"></i></button></a>
+                                        <a href='@Url.Action("Detail","PhieuMuon", new {id = @item.Id })' onclick=""><button class="btn  btn-sm btn-success"><i class="fa fa-eye"></i></button></a>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                    <button class="btn btn-danger" disabled>Xóa</button>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+<!-- /.content -->

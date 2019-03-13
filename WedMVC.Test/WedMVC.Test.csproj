@@ -4537,13 +4537,28 @@
     <Content Include="Views\Sach\Edit.cshtml" />
     <Content Include="Views\Sach\Delete.cshtml" />
     <Content Include="Views\Sach\Detail.cshtml" />
+    <Content Include="Views\ChuDe\Index.cshtml" />
+    <Content Include="Views\ChuDe\Add.cshtml" />
+    <Content Include="Views\ChuDe\Edit.cshtml" />
+    <Content Include="Views\NhaXuatBan\Index.cshtml" />
+    <Content Include="Views\NhaXuatBan\Add.cshtml" />
+    <Content Include="Views\PhieuMuon\Edit.cshtml" />
+    <Content Include="Views\NhaXuatBan\Edit.cshtml" />
+    <Content Include="Views\PhieuMuon\Add.cshtml" />
+    <Content Include="Views\TacGia\Index.cshtml" />
+    <Content Include="Views\TacGia\Add.cshtml" />
+    <Content Include="Views\TacGia\Edit.cshtml" />
+    <Content Include="Views\ChuDe\Delete.cshtml" />
+    <Content Include="Views\ChuDe\Detail.cshtml" />
+    <Content Include="Views\NhaXuatBan\Delete.cshtml" />
+    <Content Include="Views\NhaXuatBan\Detail.cshtml" />
+    <Content Include="Views\TacGia\Delete.cshtml" />
+    <Content Include="Views\TacGia\Detail.cshtml" />
+    <Content Include="Views\PhieuMuon\Index.cshtml" />
+    <Content Include="Views\PhieuMuon\Delete.cshtml" />
+    <Content Include="Views\PhieuMuon\Detail.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\ChuDe\" />
-    <Folder Include="Views\NhaXuatBan\" />
-    <Folder Include="Views\PhieuMuon\" />
-    <Folder Include="Views\TacGia\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

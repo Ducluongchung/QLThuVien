@@ -10,7 +10,7 @@ namespace WebMVC.Service
 {
     public interface IMuonSachService : IService<MuonSach>
     {
-
+        List<MuonSach> Search(string SearchString);
     }
     public class MuonSachService : IMuonSachService
     {
@@ -37,6 +37,11 @@ namespace WebMVC.Service
         public MuonSach GetById(int id)
         {
             return _repository.GetById(id);
+        }
+
+        public List<MuonSach> Search(string SearchString)
+        {
+            return _repository.Search(SearchString);
         }
 
         public bool Update(MuonSach item)
