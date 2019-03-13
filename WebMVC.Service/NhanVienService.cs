@@ -10,7 +10,7 @@ namespace WebMVC.Service
 {
     public interface INhanVienService : IService<NhanVien>
     {
-
+        List<NhanVien> Search(string SearchString);
     }
     public class NhanVienService : INhanVienService
     {
@@ -59,6 +59,11 @@ namespace WebMVC.Service
         public bool Delete(NhanVien entity)
         {
             return _repository.Delete(entity);
+        }
+
+        public List<NhanVien> Search(string SearchString)
+        {
+           return  _repository.Search(SearchString);
         }
 
         /// <summary>

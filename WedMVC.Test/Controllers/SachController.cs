@@ -20,11 +20,12 @@ namespace WedMVC.Test.Controllers
         private readonly ITacGiaService _tacGiaService;
 
         private readonly INhaXuatBanService _nhaXuatBanService;
+        
         public SachController(ISachService sachService, IChuDeService chuDeService, ITacGiaService tacGiaService, INhaXuatBanService nhaXuatBanService)
         {
             _sachService = sachService;
             _tacGiaService = tacGiaService;
-            _sachService = sachService;
+            _chuDeService = chuDeService;
             _nhaXuatBanService = nhaXuatBanService;
         }
         /// <summary>
@@ -32,9 +33,10 @@ namespace WedMVC.Test.Controllers
         /// </summary>
         /// <param name="SearchString"></param>
         /// <returns></returns>
-        public ActionResult Index()
+        public ActionResult Index(string SearchString)
         {
-            var model = _sachService.GetAll();
+            var model = _sachService.Search(SearchString);
+            ViewBag.SearchString = SearchString;
             return View(model);
         }
         /// <summary>
@@ -44,11 +46,18 @@ namespace WedMVC.Test.Controllers
         [HttpGet]
         public ActionResult Add()
         {
+            var listTacgia = _tacGiaService.GetAll();
+            var listChude = _chuDeService.GetAll();
+            var listNhaXuatBan = _nhaXuatBanService.GetAll();
+            ViewBag.IdTacGia = new SelectList(listTacgia, "Id", "Name");
+            ViewBag.IdNXB = new SelectList(listNhaXuatBan, "Id", "Name");
+            ViewBag.IdChuDe = new SelectList(listChude, "Id", "Name");
             return View();
         }
         [HttpPost]
         public ActionResult Add(Sach sach)
         {
+          
             if (ModelState.IsValid)
             {
                 if (_sachService.Add(sach) > 0)
@@ -65,6 +74,12 @@ namespace WedMVC.Test.Controllers
         [HttpGet]
         public ActionResult Edit(int? id)
         {
+            var listTacgia = _tacGiaService.GetAll();
+            var listChude = _chuDeService.GetAll();
+            var listNhaXuatBan = _nhaXuatBanService.GetAll();
+            ViewBag.IdTacGia = new SelectList(listTacgia, "Id", "Name",id);
+            ViewBag.IdNXB = new SelectList(listNhaXuatBan, "Id", "Name",id);
+            ViewBag.IdChuDe = new SelectList(listChude, "Id", "Name",id);
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

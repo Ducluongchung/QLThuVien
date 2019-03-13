@@ -47,7 +47,7 @@ namespace WebMVC.Repository
             throw new NotImplementedException();
         }
 
-        public ChuDe Search(string SearchString)
+        public List<ChuDe> Search(string SearchString)
         {
             throw new NotImplementedException();
         }

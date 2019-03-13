@@ -47,9 +47,14 @@ namespace WebMVC.Repository
             throw new NotImplementedException();
         }
 
-        public Tacgia Search(string SearchString)
+        public List<Tacgia> Search(string SearchString)
         {
-            throw new NotImplementedException();
+            if (SearchString == null)
+            {
+                return GetAll();
+            }
+            else
+                return _context.Tacgias.Where(x => x.Name.Contains(SearchString)).ToList();
         }
 
         public bool Update(Tacgia item)

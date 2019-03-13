@@ -47,7 +47,7 @@ namespace WebMVC.Repository
             throw new NotImplementedException();
         }
 
-        public DocGia Search(string SearchString)
+        public List<DocGia> Search(string SearchString)
         {
             throw new NotImplementedException();
         }

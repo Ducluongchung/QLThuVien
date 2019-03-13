@@ -10,7 +10,7 @@ namespace WebMVC.Service
 {
     public interface ISachService : IService<Sach>
     {
-
+        List<Sach> Search(string SearchString);
     }
     public class SachService : ISachService
     {
@@ -39,6 +39,10 @@ namespace WebMVC.Service
             return _repository.GetById(id);
         }
 
+        public List<Sach> Search(string SearchString)
+        {
+            return _repository.Search(SearchString);
+        }
         public bool Update(Sach item)
         {
             return _repository.Update(item);

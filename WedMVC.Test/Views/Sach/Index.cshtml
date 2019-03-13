@@ -1,0 +1,92 @@
+﻿
+@model List<WebMVC.Model.Sach>
+@{
+    ViewBag.Title = "Danh sách nhân viên";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int stt = 0;
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Danh sách  Books
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Sách</a></li>
+        <li class="active">Danh sách Books</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Hiển thị danh sách books</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-6" style="margin-bottom:15px">
+                            @using (Html.BeginForm("Index", "Sach", FormMethod.Get))
+                            {
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Từ khóa" value="@ViewBag.SearchString" name="SearchString">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="submit">Tìm kiếm</button>
+                                    </span>
+                                </div><!-- /input-group -->
+                            }
+                        </div>
+                        <div class="col-md-6">
+                            <a href="/Sach/Add"><button class="btn btn-success">Thêm mới</button></a>
+                        </div>
+                    </div>
+                    <table id="example2" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th width="7%">STT</th>
+                                <th>Tên</th>
+                                <th>Tác giả</th>
+                                <th>Chủ đề </th>
+                                <th>Nhà xuất bản</th>
+                                <th>Số lượng</th>
+                               
+                                <th width="12%">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                stt++;
+                                <tr>
+                                    <td>@stt</td>
+                                    <td>
+                                        @item.Name
+                                    </td>
+                                    <td>@item.Tacgia.Name</td>
+                                    <td>@item.ChuDe.Name</td>
+                                    <td>@item.NhaXuatBan.Name</td>
+                                    <td>@item.SoLuong</td>
+                                    <td>
+                                        <a href='@Url.Action("Edit","Sach", new {id = @item.Id })' onclick=""><button class="btn  btn-sm btn-primary"><i class="fa fa-pencil"></i></button></a>
+                                        <a href='@Url.Action("Delete","Sach", new {id = @item.Id })'><button class="btn  btn-sm btn-danger"><i class="fa fa-trash"></i></button></a>
+                                        <a href='@Url.Action("Detail","Sach", new {id = @item.Id })' onclick=""><button class="btn  btn-sm btn-success"><i class="fa fa-eye"></i></button></a>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                    <button class="btn btn-danger" disabled>Xóa</button>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+<!-- /.content -->

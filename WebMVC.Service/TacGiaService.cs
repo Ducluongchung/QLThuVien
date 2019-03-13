@@ -10,7 +10,7 @@ namespace WebMVC.Service
 {
     public interface ITacGiaService : IService<Tacgia>
     {
-
+        List<Tacgia> Search(string SearchString);
     }
     public class TacGiaService : ITacGiaService
     {
@@ -37,6 +37,11 @@ namespace WebMVC.Service
         public Tacgia GetById(int id)
         {
             return _repository.GetById(id);
+        }
+
+        public List<Tacgia> Search(string SearchString)
+        {
+            return _repository.Search(SearchString);
         }
 
         public bool Update(Tacgia item)

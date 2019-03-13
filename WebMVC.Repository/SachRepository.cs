@@ -43,12 +43,17 @@ namespace WebMVC.Repository
 
         public Sach GetById(int id)
         {
-            throw new NotImplementedException();
+            return _context.Saches.Find(id);
         }
 
-        public Sach Search(string SearchString)
+        public List<Sach> Search(string SearchString)
         {
-            throw new NotImplementedException();
+            if (SearchString == null)
+            {
+                return GetAll();
+            }
+            else
+                return _context.Saches.Where(x => x.Name.Contains(SearchString)).ToList();
         }
 
         public bool Update(Sach item)

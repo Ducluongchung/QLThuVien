@@ -58,7 +58,7 @@
                     <label for="inputEmail3" class="col-sm-2 control-label">Giới tính</label>
                     <div class="col-sm-2">
                         <select name="Sex" class="form-control">
-                            <option value="Name">Nam</option>
+                            <option value="Nam">Nam</option>
                             <option value="Nữ">Nữ</option>
                         </select>
                     </div>
@@ -265,8 +265,9 @@
                 </div>
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label">Hợp đồng</label>
-                    <div class="col-sm-2">
-                        <input type="text" class="form-control" name="HopDongId">
+                    <div class="col-sm-1">
+                        @Html.DropDownListFor(model => model.HopDongId, null, new { @class = "form-control" } )
+                        @Html.ValidationMessageFor(model => model.HopDongId, "", new { @class = "text-danger" })
                     </div>
                 </div>
             </div><!-- /.box-body -->

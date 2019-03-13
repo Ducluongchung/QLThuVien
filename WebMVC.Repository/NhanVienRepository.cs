@@ -90,9 +90,15 @@ namespace WebMVC.Repository
             throw new NotImplementedException();
         }
 
-        public NhanVien Search(string SearchString)
+        public List<NhanVien> Search(string SearchString)
         {
-            throw new NotImplementedException();
+            if (SearchString == null)
+            {
+                return GetAll();
+            }
+            else
+                return _context.NhanViens.Where(x => x.Name.Contains(SearchString) || x.National.Contains(SearchString) || x.Address.Contains(SearchString)).ToList();
+            
         }
 
 

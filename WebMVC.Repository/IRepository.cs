@@ -14,6 +14,6 @@ namespace WebMVC.Repository
         bool Update(T item);
         bool Delete(T entity);
 
-        T Search(string SearchString);
+        List<T> Search(string SearchString);
     }
 }

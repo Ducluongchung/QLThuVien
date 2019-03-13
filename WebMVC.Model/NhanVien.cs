@@ -12,9 +12,6 @@ namespace WebMVC.Model
     {
         public int Id { set; get; }
         public string Name { set; get; }
-
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        [DataType(DataType.Date)]
         public DateTime BirthDate { set; get; }
         public string Sex { set; get; }
 

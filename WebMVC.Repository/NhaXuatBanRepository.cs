@@ -44,12 +44,17 @@ namespace WebMVC.Repository
 
         public NhaXuatBan GetById(int id)
         {
-            throw new NotImplementedException();
+            return _context.NhaXuatBans.Find(id);
         }
 
-        public NhaXuatBan Search(string SearchString)
+        public List<NhaXuatBan> Search(string SearchString)
         {
-            throw new NotImplementedException();
+            if (SearchString == null)
+            {
+                return GetAll();
+            }
+            else
+                return _context.NhaXuatBans.Where(x => x.Name.Contains(SearchString)).ToList();
         }
 
         public bool Update(NhaXuatBan item)

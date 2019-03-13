@@ -46,7 +46,7 @@ namespace WebMVC.Repository
             throw new NotImplementedException();
         }
 
-        public HopDong Search(string SearchString)
+        public List<HopDong> Search(string SearchString)
         {
             throw new NotImplementedException();
         }

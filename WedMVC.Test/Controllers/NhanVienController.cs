@@ -14,19 +14,28 @@ namespace WedMVC.Test.Controllers
     {
         TestMVCDbContext db = new TestMVCDbContext();
         private readonly INhanVienService _nhanVienService;
-        public NhanVienController(INhanVienService nhanVienService)
+        private readonly IHopDongService _hopDongService;
+        public NhanVienController(INhanVienService nhanVienService, IHopDongService hopDongService)
         {
             _nhanVienService = nhanVienService;
+            _hopDongService = hopDongService;
         }
         /// <summary>
         /// Action Index
         /// </summary>
         /// <param name="SearchString"></param>
         /// <returns></returns>
-        public ActionResult Index()
+        public ActionResult Index(string SearchString)
         {
-            var model = _nhanVienService.GetAll();
+            var model = _nhanVienService.Search(SearchString);
+            ViewBag.SearchString = SearchString;
             return View(model);
+        }
+
+        public void SetView(int ?id= null)
+        {
+          var model =  _hopDongService.GetAll();
+            ViewBag.HopDongId = new SelectList(model, "Id", "Id", id);
         }
         /// <summary>
         /// Action Add
@@ -35,6 +44,7 @@ namespace WedMVC.Test.Controllers
         [HttpGet]
         public ActionResult Add()
         {
+            SetView();
             return View();
         }
         [HttpPost]
@@ -56,6 +66,7 @@ namespace WedMVC.Test.Controllers
         [HttpGet]
         public ActionResult Edit(int? id)
         {
+            SetView(id);
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

@@ -47,7 +47,7 @@ namespace WebMVC.Repository
             throw new NotImplementedException();
         }
 
-        public MuonSach Search(string SearchString)
+        public List<MuonSach> Search(string SearchString)
         {
             throw new NotImplementedException();
         }
